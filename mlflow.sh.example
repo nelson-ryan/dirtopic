@@ -1,0 +1,7 @@
+export MLFLOW_FLASK_SERVER_SECRET_KEY="<i_am_a_key_and_I_will_be_set_the_first_time_mlflow_is_run>"
+export MLFLOW_AUTH_ADMIN_PASSWORD="<similarly_this_is_the_admin_password_to_set>"
+mlflow ui \
+    --host <ip_where_the_mlflow_server_is_running> \
+    --allowed-hosts "<server_name>:5000" \
+    --cors-allowed-origins "http://<server_name>:5000" \
+    --app-name basic-auth
