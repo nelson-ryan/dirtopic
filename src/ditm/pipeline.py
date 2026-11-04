@@ -255,7 +255,10 @@ def pipeline(
             baseline = baseline, # type: ignore
         )
         words = viz.bertopic_words(topic_model)
-        timechange.heatmap(words).write_html(timeviz_path)
+        timechange.heatmap(words).write_html(
+            timeviz_path,
+            include_plotlyjs = "cdn"
+        )
         artifactpaths[f"timeviz_{baseline}_{runhash}"] = timeviz_path
 
 # bar plot
@@ -263,7 +266,7 @@ def pipeline(
     logger.info("Creating topic-count visualization")
     viz.topic_sizes(
         topic_model.get_topic_info()
-    ).write_html(topic_sizes_path)
+    ).write_html(topic_sizes_path, include_plotlyjs = "cdn")
     artifactpaths['topic_sizes'] = topic_sizes_path
 
 # corpus data
