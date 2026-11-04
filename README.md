@@ -28,6 +28,7 @@ topic heatmaps, and per-topic word clouds.
 - [mlflow](#mlflow)
     - [Authentication](#authentication)
 - [Maintenance](#maintenance)
+- [Streamtlit](#streamlit)
 
 ---
 
@@ -705,3 +706,15 @@ topic labels are found to contain common words that are not informative.
 embedding. These may be changed, as well, though there is no expected motivation
 to do so.
 
+---
+
+## Streamlit
+
+When expanding into a UI powered by Streamlit (or anything else):
+
+  - Add or modify any output of `pipeline()` by adding to the `artifactpaths`
+  `dict` returned there (or add an additional returned item, though that
+may become cumbersome).
+
+  - Either replace the mlflow calls with whatever is needed by the UI
+  framework or add it.
